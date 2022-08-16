@@ -6,6 +6,7 @@ import * as actions from "../../store/actions";
 import "./Login.scss";
 import { FormattedMessage } from "react-intl";
 import { handleLoginApi } from "../../services/userService";
+import { userLoginSuccess } from "../../store/actions";
 
 class Login extends Component {
   constructor(props) {
@@ -41,8 +42,8 @@ class Login extends Component {
         });
       }
       if (data && data.errCode === 0) {
-        //todo
-        console.log("login success");
+        this.props.userLoginSuccess(data.user);
+        console.log("login succeeds");
       }
     } catch (error) {
       if (error.response) {
@@ -142,9 +143,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     navigate: (path) => dispatch(push(path)),
-    adminLoginSuccess: (adminInfo) =>
-      dispatch(actions.adminLoginSuccess(adminInfo)),
-    adminLoginFail: () => dispatch(actions.adminLoginFail()),
+    // userLoginFail: () => dispatch(actions.adminLoginFail()),
+    userLoginSuccess: (userInfo) =>
+      dispatch(actions.userLoginSuccess(userInfo)),
   };
 };
 
