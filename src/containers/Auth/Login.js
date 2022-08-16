@@ -14,6 +14,7 @@ class Login extends Component {
       username: "",
       password: "",
       isShowPassword: false,
+      errMessage: "",
     };
   }
 
@@ -29,12 +30,30 @@ class Login extends Component {
   };
 
   hanldeLogin = async () => {
-    console.log(this.state.username);
-    console.log(this.state.password);
+    this.setState({
+      errMessage: "",
+    });
     try {
-      await handleLoginApi(this.state.username, this.state.password);
-    } catch (e) {
-      console.log(e);
+      let data = await handleLoginApi(this.state.username, this.state.password);
+      if (data && data.errCode !== 0) {
+        this.setState({
+          errMessage: data.message,
+        });
+      }
+      if (data && data.errCode === 0) {
+        //todo
+        console.log("login success");
+      }
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data) {
+          this.setState({
+            errMessage: error.response.data.message,
+          });
+        }
+      }
+      // console.log(e);
+      console.log("error", error.response);
     }
   };
 
@@ -84,6 +103,9 @@ class Login extends Component {
                   ></i>
                 </span>
               </div>
+            </div>
+            <div className="col-12" style={{ color: "red" }}>
+              {this.state.errMessage}
             </div>
             <div className="col-12">
               <button
