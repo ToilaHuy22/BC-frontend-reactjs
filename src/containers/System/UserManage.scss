@@ -1,3 +1,12 @@
+$primary-color: rgba(34, 193, 195, 1);
+@mixin linear-color {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+}
+
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -32,7 +41,7 @@
       tr {
         th {
           font-size: 18px;
-          background-color: rgba(34, 193, 195, 1);
+          background-color: $primary-color;
         }
         td {
           font-size: 16px;
@@ -60,15 +69,11 @@
     }
   }
   .btn {
-    background-color: rgba(34, 193, 195, 1);
+    background-color: $primary-color;
     color: white;
     transition: 0.2s;
     &:hover {
-      background: linear-gradient(
-        135deg,
-        rgba(34, 193, 195, 1) 0%,
-        rgba(253, 187, 45, 1) 100%
-      );
+      @include linear-color();
     }
     i {
       margin-right: 10px;
@@ -83,7 +88,7 @@
     overflow: hidden;
 
     .modal-header {
-      background-color: rgba(34, 193, 195, 1) !important;
+      background-color: $primary-color !important;
       height: 50px !important;
       h5 {
         font-size: 18px !important;
@@ -117,6 +122,17 @@
           outline: none;
           padding: 10px 10px;
           font-size: 16px;
+        }
+      }
+    }
+    .modal-footer {
+      button {
+        border-radius: 25px;
+        &:first-child {
+          background-color: rgba(34, 193, 195, 1);
+          &:hover {
+            @include linear-color();
+          }
         }
       }
     }
