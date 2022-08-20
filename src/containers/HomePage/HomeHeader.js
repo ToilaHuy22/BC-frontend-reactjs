@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
+import { FormattedMessage } from "react-intl";
 
 class HomeHeader extends Component {
   render() {
@@ -15,35 +16,53 @@ class HomeHeader extends Component {
             <div className="center-content">
               <div className="child-content">
                 <div className="">
-                  <b>Chuyên khoa</b>
+                  <b>
+                    <FormattedMessage id={"homeheader.speciality"} />
+                  </b>
                 </div>
-                <div className="subs-title">Tìm bác sĩ theo chuyên khoa</div>
+                <div className="subs-title">
+                  <FormattedMessage id={"homeheader.searchdoctor"} />
+                </div>
               </div>
               <div className="child-content">
                 <div className="">
-                  <b>Cơ sở y tế</b>
+                  <b>
+                    <FormattedMessage id={"homeheader.health-facility"} />
+                  </b>
                 </div>
-                <div className="subs-title">Chọn bệnh viện phòng khám</div>
+                <div className="subs-title">
+                  <FormattedMessage id={"homeheader.select-room"} />
+                </div>
               </div>
               <div className="child-content">
                 <div className="">
-                  <b>Bác sĩ</b>
+                  <b>
+                    {" "}
+                    <FormattedMessage id={"homeheader.doctor"} />
+                  </b>
                 </div>
-                <div className="subs-title">Chọn bác sĩ giỏi</div>
+                <div className="subs-title">
+                  <FormattedMessage id={"homeheader.select-doctor"} />
+                </div>
               </div>
               <div className="child-content">
                 <div className="">
-                  <b>Gói khám</b>
+                  <b>
+                    <FormattedMessage id={"homeheader.fee"} />
+                  </b>
                 </div>
-                <div className="subs-title">Khám sức khỏe tổng quát</div>
+                <div className="subs-title">
+                  <FormattedMessage id={"homeheader.check-health"} />
+                </div>
               </div>
             </div>
             <div className="right-content">
               <div className="support">
                 <i className="fas fa-question-circle"></i>
-                Hỗ trợ
+                <FormattedMessage id={"homeheader.support"} />
               </div>
               <div className="flag">VN</div>
+              <div className="flag">EN</div>
             </div>
           </div>
         </div>
@@ -52,12 +71,22 @@ class HomeHeader extends Component {
             <div className="search">
               <div className="contain">
                 <h1>
-                  Nền tảng y tế <br />
-                  <b>chăm sóc sức khỏe toàn diện</b>
+                  <FormattedMessage id={"banner.health-service"} />
+                  <br />
+                  <b>
+                    {" "}
+                    <FormattedMessage id={"banner.comprehensive"} />
+                    <br />
+                  </b>
                 </h1>
                 <div className="search-form">
                   <i class="fas fa-search"></i>
-                  <input type="text" placeholder="Tìm chuyên khoa khám bệnh" />
+                  <input
+                    type="text"
+                    placeholder={
+                      <FormattedMessage id={"banner.medical-specialty"} />
+                    }
+                  />
                 </div>
                 <div className="link">
                   <a href="">
@@ -87,7 +116,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url("https://cdn.bookingcare.vn/fo/2021/12/08/133537-khamchuyenkhoa.png")`,
                       }}
                     ></div>
-                    Khám Chuyên Khoa
+                    <FormattedMessage id={"banner.pecialized"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -98,7 +127,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('https://cdn.bookingcare.vn/fo/2021/12/08/133657-khamtuxa.png')`,
                       }}
                     ></div>
-                    Khám từ xa
+                    <FormattedMessage id={"banner.remote"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -109,7 +138,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('	https://cdn.bookingcare.vn/fo/2021/12/08/133744-khamtongquat.png')`,
                       }}
                     ></div>
-                    Khám tổng quát
+                    <FormattedMessage id={"banner.general"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -120,7 +149,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('https://cdn.bookingcare.vn/fo/2021/12/08/133744-dichvuxetnghiem.png')`,
                       }}
                     ></div>
-                    Xét nghiệm y học
+                    <FormattedMessage id={"banner.test"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -131,7 +160,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('	https://cdn.bookingcare.vn/fo/2021/12/08/133744-suckhoetinhthan.png')`,
                       }}
                     ></div>
-                    Sức khỏe tinh thần
+                    <FormattedMessage id={"banner.mental-health"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -142,7 +171,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('https://cdn.bookingcare.vn/fo/2022/05/19/104635-khamnhakhoa.png')`,
                       }}
                     ></div>
-                    Khám nha khoa
+                    <FormattedMessage id={"banner.dental"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -153,7 +182,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('https://cdn.bookingcare.vn/fo/2022/05/16/151930-phau-thuat.jpg')`,
                       }}
                     ></div>
-                    Gói phẫu thuật
+                    <FormattedMessage id={"banner.surgery"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -164,7 +193,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('	https://cdn.bookingcare.vn/fo/2021/12/08/133744-khamtainha.png')`,
                       }}
                     ></div>
-                    Sản phẩm y tế
+                    <FormattedMessage id={"banner.product"} />
                   </a>
                 </li>
                 <li className="options-item">
@@ -175,7 +204,7 @@ class HomeHeader extends Component {
                         backgroundImage: `url('https://cdn.bookingcare.vn/fo/2022/07/29/101157-icon-lich-su.jpg')`,
                       }}
                     ></div>
-                    Sức khỏe
+                    <FormattedMessage id={"banner.corporate-health"} />
                   </a>
                 </li>
               </ul>
@@ -190,6 +219,7 @@ class HomeHeader extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    language: state.app.language,
   };
 };
 
