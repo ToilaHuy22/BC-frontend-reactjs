@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./HomeHeader.scss";
 import { FormattedMessage } from "react-intl";
+import { LANGUAGES } from "../../utils/constant.js";
+import { changeLanguageApp } from "../../store/actions";
 
 class HomeHeader extends Component {
+  changeLanguage = (language) => {
+    this.props.changeLanguageAppRedux(language);
+  };
+
   render() {
+    let language = this.props.language;
+    console.log("check language", language);
     return (
       <>
         <div className="home-header-container ">
@@ -61,8 +69,30 @@ class HomeHeader extends Component {
                 <i className="fas fa-question-circle"></i>
                 <FormattedMessage id={"homeheader.support"} />
               </div>
-              <div className="flag">VN</div>
-              <div className="flag">EN</div>
+              <div className="language">
+                <div
+                  className={
+                    language === LANGUAGES.VI
+                      ? "language-vi active"
+                      : "language-vi"
+                  }
+                >
+                  <span onClick={() => this.changeLanguage(LANGUAGES.VI)}>
+                    VI
+                  </span>
+                </div>
+                <div
+                  className={
+                    language === LANGUAGES.EN
+                      ? "language-en active"
+                      : "language-en"
+                  }
+                >
+                  <span onClick={() => this.changeLanguage(LANGUAGES.EN)}>
+                    EN
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -81,12 +111,7 @@ class HomeHeader extends Component {
                 </h1>
                 <div className="search-form">
                   <i class="fas fa-search"></i>
-                  <input
-                    type="text"
-                    placeholder={
-                      <FormattedMessage id={"banner.medical-specialty"} />
-                    }
-                  />
+                  <input type="text" />
                 </div>
                 <div className="link">
                   <a href="">
@@ -224,7 +249,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    changeLanguageAppRedux: (language) => dispatch(changeLanguageApp(language)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeHeader);

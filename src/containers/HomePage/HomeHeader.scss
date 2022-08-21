@@ -88,7 +88,23 @@ li {
       .support {
         color: grey;
         font-weight: 600;
-        margin-right: 10px;
+        margin-right: 20px;
+        cursor: pointer;
+        @include transition-hover-2();
+        &:hover {
+          color: $primary-color-blue;
+        }
+      }
+      .language {
+        @include flex(center, center, nowrap);
+        cursor: pointer;
+        :first-child {
+          margin-right: 5px;
+        }
+        .active {
+          color: $primary-color-blue;
+          font-weight: 600;
+        }
       }
     }
   }
