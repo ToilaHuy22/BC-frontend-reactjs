@@ -14,27 +14,53 @@ class Specialty extends Component {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      //auto scroll
+      autoplay: true,
+      speed: 500,
+      autoplaySpeed: 6000,
+      cssEase: "linear",
     };
     return (
       <div className="section-speciality">
-        Specialty
-        <div className="specialty-content">
-          <Slider {...settings}>
-            <div className="img">
-              <h3>1</h3>
-            </div>
-            <div className="img">
-              <h3>2</h3>
-            </div>
-            <div className="img">
-              <h3>3</h3>
-            </div>
-            <div className="img">
-              <h3>4</h3>
-            </div>
-          </Slider>
+        <div className="specialty-container container">
+          <div className="specialty-header">
+            <span className="specialty-title">Chuyên Khoa Phổ Biến</span>
+            <button className="specialty-more">Xem Thêm</button>
+          </div>
+          <div className="specialty-body">
+            <Slider {...settings}>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+              <div className="specialty-item">
+                <div className="img" />
+                <p>Cơ xương khớp</p>
+              </div>
+            </Slider>
+          </div>
         </div>
       </div>
     );
