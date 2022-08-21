@@ -1,0 +1,155 @@
+$primary-color-yellow: #f7d800;
+$primary-color-blue: #49bce2;
+$more-color: #ebebeb;
+
+body {
+  font-family: "Montserrat", sans-serif;
+  //   font-family: "Roboto", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+li {
+  list-style: none;
+}
+.slick-prev,
+.slick-next {
+  top: 80px !important;
+  height: 40px !important;
+  width: 40px !important;
+  //   border-radius: 25px !important;
+  background: #ccc !important;
+  //   background-color: #49bce2 !important;
+  :hover {
+    background-color: $primary-color-blue !important;
+  }
+}
+.slick-prev {
+  left: -20px !important;
+  z-index: 1 !important;
+}
+.slick-next {
+  right: -20px !important;
+  z-index: 1 !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-family: "Glyphicons Halflings" !important;
+  color: $primary-color-blue !important;
+}
+
+$primary-color-yellow: #f7d800;
+$primary-color-blue: #49bce2;
+$more-color: #ebebeb;
+
+body {
+  font-family: "Montserrat", sans-serif;
+  //   font-family: "Roboto", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+li {
+  list-style: none;
+}
+
+.section-share {
+  &.section-specialty,
+  &.section-medical-facility {
+    background-color: #f5f5f5;
+  }
+  .section-body {
+    .section-item {
+      cursor: pointer;
+      &.doctor {
+        height: 220px;
+        width: 278px !important;
+        border: 1px solid #eee;
+        // border-left: 1px solid #eee;
+        // border-right: 1px solid #eee;
+      }
+      &.handbook {
+      }
+      .detail {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .img {
+        width: 278px;
+        height: 150px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #eee;
+        &.section-specialty {
+          background-image: url("../../assets/specialty/xuongkhop.jpg");
+        }
+        &.section-medical-facility {
+          background-image: url("../../assets/medical-facility/095119-benh-vien-cho-ray-h1.jpg");
+        }
+        &.section-outstanding-doctor {
+          background-image: url("../../assets/outstanding-doctor/103848anh-dai-dien-bs.jpg");
+          padding-top: 10px;
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          margin: 0 auto;
+        }
+        &.section-handbook {
+          background-image: url("../../assets/handbook/104612-uu-dai-tai-nha-khoa-new-gate.jpg");
+        }
+      }
+      p {
+        margin-top: 5px;
+      }
+      &:hover {
+        color: $primary-color-blue;
+      }
+    }
+  }
+}
+
+.section-share {
+  padding: 20px 0;
+  height: 330px;
+
+  .section-container {
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+    .section {
+      &-title {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      &-more {
+        font-size: 12px;
+        padding: 10px 15px;
+        background-color: $more-color;
+        text-transform: uppercase;
+        transition: 0.2s linear;
+        border: none;
+        &:hover {
+          background-color: $primary-color-yellow;
+        }
+      }
+    }
+  }
+}
+
+//reset slick slider
