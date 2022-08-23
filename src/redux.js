@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { createStateSyncMiddleware } from "redux-state-sync";
+//persist middleware
 import { persistStore } from "redux-persist";
 
 import createRootReducer from "./store/reducers/rootReducer";
