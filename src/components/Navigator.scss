@@ -12,11 +12,7 @@
     transition: 0.2s linear;
     &:hover {
       cursor: pointer;
-      background: linear-gradient(
-        135deg,
-        rgba(34, 193, 195, 1) 0%,
-        rgba(253, 187, 45, 1) 100%
-      );
+      color: rgba(253, 187, 45, 1);
     }
     .menu-group-name {
       line-height: 40px;

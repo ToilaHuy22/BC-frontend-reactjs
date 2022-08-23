@@ -1,11 +1,5 @@
-$primary-color: rgba(34, 193, 195, 1);
-@mixin linear-color {
-  background: linear-gradient(
-    135deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
-  );
-}
+$primary-color-blue: rgba(34, 193, 195, 1);
+$primary-color-yellow: rgba(253, 187, 45, 1);
 
 #customers {
   font-family: Arial, Helvetica, sans-serif;
@@ -41,7 +35,7 @@ $primary-color: rgba(34, 193, 195, 1);
       tr {
         th {
           font-size: 18px;
-          background-color: $primary-color;
+          background-color: $primary-color-blue;
         }
         td {
           font-size: 16px;
@@ -69,11 +63,11 @@ $primary-color: rgba(34, 193, 195, 1);
     }
   }
   .btn {
-    background-color: $primary-color;
+    background-color: $primary-color-blue;
     color: white;
     transition: 0.2s;
     &:hover {
-      @include linear-color();
+      color: $primary-color-yellow;
     }
     i {
       margin-right: 10px;
@@ -88,7 +82,7 @@ $primary-color: rgba(34, 193, 195, 1);
     overflow: hidden;
 
     .modal-header {
-      background-color: $primary-color !important;
+      background-color: $primary-color-blue !important;
       height: 50px !important;
       h5 {
         font-size: 18px !important;
@@ -131,7 +125,12 @@ $primary-color: rgba(34, 193, 195, 1);
         &:first-child {
           background-color: rgba(34, 193, 195, 1);
           &:hover {
-            @include linear-color();
+            color: $primary-color-yellow;
+          }
+        }
+        &:last-child {
+          &:hover {
+            color: $primary-color-yellow;
           }
         }
       }
