@@ -12,6 +12,9 @@
   font-weight: 600;
   .languages {
     cursor: pointer;
+    .welcome {
+      font-size: 12px;
+    }
     &-en,
     &-vi {
       &.active {
@@ -19,10 +22,12 @@
       }
     }
     &-en {
-      margin-left: 10px;
-      margin-right: 20px;
+      margin-left: 2px;
+      margin-right: 10px;
     }
     &-vi {
+      margin-left: 20px;
+      margin-right: 2px;
     }
   }
   .btn-logout {

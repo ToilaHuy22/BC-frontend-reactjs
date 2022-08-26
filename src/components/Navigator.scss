@@ -17,6 +17,7 @@
     .menu-group-name {
       line-height: 40px;
       padding: 0 15px;
+      font-size: 16px;
       border-right: 1px solid $border;
       &:first-child {
         border-left: 1px solid $border;
@@ -36,9 +37,22 @@
         height: 35px;
         line-height: 35px;
         text-transform: none;
+        &:hover {
+          background-color: #22c1c3 !important;
+          a {
+            color: rgba(253, 187, 45, 1);
+          }
+        }
+        &.active {
+          a {
+            color: rgba(253, 187, 45, 1);
+          }
+        }
         .menu-link {
           text-decoration: none;
           color: $text-in-light;
+          font-size: 14px;
+          transition: 0.1s linear;
         }
         .sub-menu-list {
           display: none;
