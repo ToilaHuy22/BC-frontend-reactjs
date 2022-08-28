@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import "./UserRedux.scss";
 import { getAllCodeService } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
@@ -13,6 +15,8 @@ class UserRedux extends Component {
       genderArr: [],
       positionArr: [],
       roleArr: [],
+      previewImgUrl: "",
+      isOpen: false,
     };
   }
 
@@ -50,6 +54,23 @@ class UserRedux extends Component {
       });
     }
   }
+
+  handleOnChangeImage = (event) => {
+    let data = event.target.files;
+    let file = data[0];
+    if (file) {
+      let objectUrl = URL.createObjectURL(file);
+      this.setState({
+        previewImgUrl: objectUrl,
+      });
+    }
+  };
+  openPreviewImage = () => {
+    if (!this.state.previewImgUrl) return;
+    this.setState({
+      isOpen: true,
+    });
+  };
 
   render() {
     let genders = this.state.genderArr;
@@ -176,14 +197,25 @@ class UserRedux extends Component {
                   <FormattedMessage id={"manage-user.image"} />
                 </label>
                 <div className="preview-img-container ">
-                  <input id="previewImg" type="file" hidden />
+                  <input
+                    id="previewImg"
+                    type="file"
+                    hidden
+                    onChange={(event) => this.handleOnChangeImage(event)}
+                  />
                   <label className="label-upload" htmlFor="previewImg">
                     Tải ảnh <i className="fas fa-upload"></i>
                   </label>
                 </div>
               </div>
-              <div className=" col-12">
-                <div className="preview-image col-4"></div>
+              <div className="col-12">
+                <div
+                  className="preview-image col-4"
+                  style={{
+                    backgroundImage: `url(${this.state.previewImgUrl})`,
+                  }}
+                  onClick={() => this.openPreviewImage()}
+                ></div>
               </div>
               <div className="col-12 mt-3">
                 <button className="btn btn-primary save">
@@ -194,7 +226,12 @@ class UserRedux extends Component {
             </div>
           </div>
         </div>
-        ;
+        {this.state.isOpen === true && (
+          <Lightbox
+            mainSrc={this.state.previewImgUrl}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+          />
+        )}
       </div>
     );
   }
