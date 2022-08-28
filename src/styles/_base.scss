@@ -12,6 +12,12 @@ html {
   overflow: hidden;
 }
 
+.btn {
+  &:hover {
+    opacity: 0.9 !important;
+  }
+}
+
 .content-container {
   .title {
     text-align: center;
