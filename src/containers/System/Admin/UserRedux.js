@@ -7,6 +7,7 @@ import "./UserRedux.scss";
 import { getAllCodeService } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils";
 import * as actions from "../../../store/actions";
+import TableManageUser from "./TableManageUser";
 
 class UserRedux extends Component {
   constructor(props) {
@@ -73,6 +74,20 @@ class UserRedux extends Component {
         role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
       });
     }
+    if (prevProps.listUsers !== this.props.listUsers) {
+      this.setState({
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        phoneNumber: "",
+        address: "",
+        gender: "",
+        position: "",
+        role: "",
+        avatar: "",
+      });
+    }
   }
 
   handleOnChangeImage = (event) => {
@@ -109,6 +124,8 @@ class UserRedux extends Component {
       roleId: this.state.role,
       positionId: this.state.position,
     });
+    //Re-render All Users
+    this.props.fetchUserRedux();
   };
 
   checkValidateInput = () => {
@@ -165,7 +182,7 @@ class UserRedux extends Component {
         <div className="user-redux-body">
           <div className="container">
             <div className="row">
-              <div className="col-12 my-3">
+              <div className="col-12 my-3 form-title">
                 <FormattedMessage id={"manage-user.add"} />
               </div>
               <div className="col-12">
@@ -219,7 +236,7 @@ class UserRedux extends Component {
                   onChange={(event) => this.onChangeInput(event, "lastName")}
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.phone-number"} />
@@ -231,7 +248,7 @@ class UserRedux extends Component {
                   onChange={(event) => this.onChangeInput(event, "phoneNumber")}
                 />
               </div>
-              <div className="col-8">
+              <div className="col-8 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.address"} />
@@ -243,7 +260,7 @@ class UserRedux extends Component {
                   onChange={(event) => this.onChangeInput(event, "address")}
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.gender"} />
@@ -265,7 +282,7 @@ class UserRedux extends Component {
                     })}
                 </select>
               </div>
-              <div className="col-4">
+              <div className="col-4 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.position"} />
@@ -287,7 +304,7 @@ class UserRedux extends Component {
                     })}
                 </select>
               </div>
-              <div className="col-4">
+              <div className="col-4 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.role-id"} />
@@ -309,7 +326,7 @@ class UserRedux extends Component {
                     })}
                 </select>
               </div>
-              <div className="col-12">
+              <div className="col-12 mt-3">
                 <label htmlFor="">
                   {" "}
                   <FormattedMessage id={"manage-user.image"} />
@@ -321,12 +338,12 @@ class UserRedux extends Component {
                     hidden
                     onChange={(event) => this.handleOnChangeImage(event)}
                   />
-                  <label className="label-upload" htmlFor="previewImg">
+                  <label className="label-upload mt-2" htmlFor="previewImg">
                     Tải ảnh <i className="fas fa-upload"></i>
                   </label>
                 </div>
               </div>
-              <div className="col-12">
+              <div className="col-12 mt-3">
                 <div
                   className="preview-image col-4"
                   style={{
@@ -344,9 +361,13 @@ class UserRedux extends Component {
                   <FormattedMessage id={"manage-user.save"} />
                 </button>
               </div>
+              <div className="col-12 mb-5">
+                <TableManageUser />
+              </div>
             </div>
           </div>
         </div>
+
         {this.state.isOpen === true && (
           <Lightbox
             mainSrc={this.state.previewImgUrl}
@@ -365,6 +386,8 @@ const mapStateToProps = (state) => {
     roleRedux: state.admin.roles,
     positionRedux: state.admin.positions,
     isLoadingGender: state.admin.isLoadingGender,
+    //reset state
+    listUsers: state.admin.users,
   };
 };
 
@@ -374,6 +397,7 @@ const mapDispatchToProps = (dispatch) => {
     getPositionStart: () => dispatch(actions.fetchPositionStart()),
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
     createNewUser: (data) => dispatch(actions.createNewUser(data)),
+    fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
     // processLogout: () => dispatch(actions.processLogout()),
     // changeLanguageAppRedux: (language) =>dispatch(actions.changeLanguageApp(language)),
   };

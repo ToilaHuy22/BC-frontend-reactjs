@@ -1,0 +1,80 @@
+$primary-color-blue: rgba(34, 193, 195, 1);
+$primary-color-yellow: rgba(253, 187, 45, 1);
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td,
+#customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+  background-color: #ddd;
+}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: $primary-color-blue;
+  color: white;
+  .btn-edit,
+  .btn-delete {
+    width: 50px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  .btn-edit {
+    color: #029ccb;
+    &:hover {
+      color: #036482;
+    }
+  }
+  .btn-delete {
+    color: red;
+    &:hover {
+      color: rgb(181, 14, 14);
+    }
+  }
+}
+#customers {
+  tr {
+    th {
+      font-size: 14px;
+      font-weight: 500;
+      background-color: $primary-color-blue;
+    }
+    td {
+      font-size: 14px;
+    }
+  }
+  .btn-edit,
+  .btn-delete {
+    width: 50px;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+  .btn-edit {
+    color: #029ccb;
+    &:hover {
+      color: #036482;
+    }
+  }
+  .btn-delete {
+    color: red;
+    &:hover {
+      color: rgb(181, 14, 14);
+    }
+  }
+}

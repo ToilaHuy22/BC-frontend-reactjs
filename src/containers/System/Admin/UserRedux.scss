@@ -11,6 +11,34 @@
     box-shadow: 0 0 0 0 #22c1c3;
   }
 }
+
+.user-redux-container {
+  .user-redux-body {
+    .container {
+      .row {
+        .form-title {
+          font-size: 16px;
+        }
+        .form-control {
+          font-size: 16px;
+        }
+        div {
+          label {
+            font-size: 16px;
+            margin-bottom: 0;
+          }
+          .save {
+            font-size: 16px;
+
+            &:hover {
+              background-color: #fdbb2d !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 .preview-img-container {
   display: flex;
   .label-upload {
@@ -44,10 +72,4 @@
   border-radius: 4px;
   background: center center no-repeat;
   background-size: contain;
-}
-
-.save {
-  &:hover {
-    background-color: #fdbb2d !important;
-  }
 }
