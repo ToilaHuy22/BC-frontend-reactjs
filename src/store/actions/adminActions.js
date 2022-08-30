@@ -4,6 +4,7 @@ import {
   createNewUserService,
   getAllUsers,
 } from "../../services/userService.js";
+import { toast } from "react-toastify";
 
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START,
@@ -96,6 +97,7 @@ export const createNewUser = (data) => {
       console.log("check create user redux");
       if (res && res.errCode === 0) {
         dispatch(saveUserSuccess());
+        toast.success(" Created a new user");
         //Re-render All Users
         dispatch(fetchAllUsersStart());
       } else {
