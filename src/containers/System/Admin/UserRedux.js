@@ -76,6 +76,9 @@ class UserRedux extends Component {
     }
     //reset-state
     if (prevProps.listUsers !== this.props.listUsers) {
+      let arrGenders = this.props.genderRedux;
+      let arrPositions = this.props.positionRedux;
+      let arrRoles = this.props.roleRedux;
       this.setState({
         email: "",
         password: "",
@@ -83,9 +86,10 @@ class UserRedux extends Component {
         lastName: "",
         phoneNumber: "",
         address: "",
-        gender: "",
-        position: "",
-        role: "",
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
+        position:
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
         avatar: "",
       });
     }
@@ -268,6 +272,7 @@ class UserRedux extends Component {
                 </label>
                 <select
                   className="form-control"
+                  value={gender}
                   onChange={(event) => this.onChangeInput(event, "gender")}
                 >
                   {genders &&
@@ -290,6 +295,7 @@ class UserRedux extends Component {
                 </label>
                 <select
                   className="form-control"
+                  value={position}
                   onChange={(event) => this.onChangeInput(event, "position")}
                 >
                   {roles &&
@@ -312,6 +318,7 @@ class UserRedux extends Component {
                 </label>
                 <select
                   className="form-control"
+                  value={role}
                   onChange={(event) => this.onChangeInput(event, "role")}
                 >
                   {positions &&

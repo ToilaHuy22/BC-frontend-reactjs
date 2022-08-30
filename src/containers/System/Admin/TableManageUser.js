@@ -40,6 +40,8 @@ class TableManageUser extends Component {
               <th>First Name</th>
               <th>Last Name</th>
               <th>Address</th>
+              <th>Phone Number</th>
+              <th>Gender</th>
               <th>Actions</th>
             </tr>
             {arrUsers &&
@@ -51,12 +53,12 @@ class TableManageUser extends Component {
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
                     <td>{item.address}</td>
+                    <td>{item.phonenumber}</td>
+                    <td>{item.gender}</td>
+
                     <td>
                       {" "}
-                      <button
-                        className="btn-edit"
-                        //   onClick={() => this.handleEditUser(item)}
-                      >
+                      <button className="btn-edit">
                         <i className="fas fa-user-edit"></i>
                       </button>
                       <button

@@ -106,8 +106,6 @@ export const createNewUser = (data) => {
       }
     } catch (e) {
       dispatch(saveUserFailed());
-
-      console.log("saveUserFaiLed error", e);
     }
   };
 };
