@@ -74,6 +74,7 @@ class UserRedux extends Component {
         role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
       });
     }
+    //reset-state
     if (prevProps.listUsers !== this.props.listUsers) {
       this.setState({
         email: "",
