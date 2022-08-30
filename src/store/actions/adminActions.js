@@ -3,6 +3,7 @@ import {
   getAllCodeService,
   createNewUserService,
   getAllUsers,
+  deleteUserService,
 } from "../../services/userService.js";
 import { toast } from "react-toastify";
 
@@ -126,12 +127,12 @@ export const fetchAllUsersStart = () => {
       if (res && res.errCode === 0) {
         dispatch(fetchAllUsersSuccess(res.users.reverse()));
       } else {
+        toast.error("Render users failed!");
         dispatch(fetchAllUsersFailed());
       }
     } catch (e) {
+      toast.error("Render users failed!");
       dispatch(fetchAllUsersFailed());
-
-      console.log("Render User FaiLed error", e);
     }
   };
 };
@@ -143,4 +144,33 @@ export const fetchAllUsersSuccess = (data) => ({
 
 export const fetchAllUsersFailed = () => ({
   type: actionTypes.FETCH_ALL_USER_FAILED,
+});
+
+//Delete User
+
+export const deleteAUser = (userId) => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await deleteUserService(userId);
+      if (res && res.errCode === 0) {
+        dispatch(deleteUserSuccess());
+        toast.success("Deleted a user!");
+        //Re-render All Users
+        dispatch(fetchAllUsersStart());
+      } else {
+        toast.error("Delete user failed!");
+        dispatch(deleteUserFailed());
+      }
+    } catch (e) {
+      toast.error("Delete user failed!");
+      dispatch(deleteUserFailed());
+    }
+  };
+};
+
+export const deleteUserSuccess = () => ({
+  type: actionTypes.DELETE_USER_SUCCESS,
+});
+export const deleteUserFailed = () => ({
+  type: actionTypes.DELETE_USER_FAILED,
 });
