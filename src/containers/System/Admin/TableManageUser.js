@@ -33,7 +33,6 @@ class TableManageUser extends Component {
   };
 
   render() {
-    console.log("check all users", this.props.listUsers);
     let arrUsers = this.state.usersRedux;
     return (
       <div className="mt-5">
@@ -46,6 +45,8 @@ class TableManageUser extends Component {
               <th>Address</th>
               <th>Phone Number</th>
               <th>Gender</th>
+              <th>Role</th>
+              <th>Position</th>
               <th>Actions</th>
             </tr>
             {arrUsers &&
@@ -59,6 +60,8 @@ class TableManageUser extends Component {
                     <td>{item.address}</td>
                     <td>{item.phonenumber}</td>
                     <td>{item.gender}</td>
+                    <td>{item.roleId}</td>
+                    <td>{item.positionId}</td>
 
                     <td>
                       {" "}

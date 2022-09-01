@@ -14,7 +14,6 @@ class Header extends Component {
   };
   render() {
     const { processLogout, language, userInfo } = this.props;
-    console.log("check user info", userInfo);
 
     return (
       <div className="header-container">
@@ -27,7 +26,7 @@ class Header extends Component {
           <span className="welcome">
             <FormattedMessage id="menu.system.welcome" />,{" "}
             {/* take name user */}
-            {userInfo && userInfo.lastName ? userInfo.lastName : ""}
+            {userInfo && userInfo.firstName ? userInfo.firstName : ""}
           </span>
           <span
             className={

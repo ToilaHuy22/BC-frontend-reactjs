@@ -1,18 +1,19 @@
 import actionTypes from "../actions/actionTypes";
 
 const initialState = {
-  isLoadingGender: false,
+  isLoading: false,
   genders: [],
   roles: [],
   positions: [],
   users: [],
+  topDoctors: [],
 };
 
 const adminReducer = (state = initialState, action) => {
   switch (action.type) {
     //render options for create user
     case actionTypes.FETCH_GENDER_START:
-      state.isLoadingGender = true;
+      state.isLoading = true;
 
       return {
         ...state,
@@ -20,14 +21,14 @@ const adminReducer = (state = initialState, action) => {
 
     case actionTypes.FETCH_GENDER_SUCCESS:
       state.genders = action.data;
-      state.isLoadingGender = false;
+      state.isLoading = false;
 
       return {
         ...state,
       };
 
     case actionTypes.FETCH_GENDER_FAILED:
-      state.isLoadingGender = false;
+      state.isLoading = false;
       state.genders = [];
       return {
         ...state,
@@ -60,19 +61,38 @@ const adminReducer = (state = initialState, action) => {
       };
 
     //render all users
+    case actionTypes.FETCH_ALL_USER_START:
+      state.isLoading = true;
+
+      return {
+        ...state,
+      };
+
     case actionTypes.FETCH_ALL_USER_SUCCESS:
       state.users = action.users;
-
+      state.isLoading = false;
       return {
         ...state,
       };
 
     case actionTypes.FETCH_ALL_USER_FAILED:
       state.users = [];
+      state.isLoading = false;
       return {
         ...state,
       };
 
+    case actionTypes.FETCH_TOP_DOCTOR_SUCCESS:
+      state.topDoctors = action.dataDoctors;
+      return {
+        ...state,
+      };
+
+    case actionTypes.FETCH_TOP_DOCTOR_FAILED:
+      state.topDoctors = [];
+      return {
+        ...state,
+      };
     default:
       return state;
   }

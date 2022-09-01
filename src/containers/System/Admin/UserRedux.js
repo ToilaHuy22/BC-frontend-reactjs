@@ -60,7 +60,7 @@ class UserRedux extends Component {
       this.setState({
         genderArr: this.props.genderRedux,
         //default dropdown
-        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : "",
       });
     }
     if (prevProps.positionRedux !== this.props.positionRedux) {
@@ -68,14 +68,14 @@ class UserRedux extends Component {
       this.setState({
         positionArr: this.props.positionRedux,
         position:
-          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].keyMap : "",
       });
     }
     if (prevProps.roleRedux !== this.props.roleRedux) {
       let arrRoles = this.props.roleRedux;
       this.setState({
         roleArr: this.props.roleRedux,
-        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap : "",
       });
     }
     //reset-state
@@ -90,10 +90,10 @@ class UserRedux extends Component {
         lastName: "",
         phoneNumber: "",
         address: "",
-        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].key : "",
-        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : "",
+        gender: arrGenders && arrGenders.length > 0 ? arrGenders[0].keyMap : "",
+        role: arrRoles && arrRoles.length > 0 ? arrRoles[0].keyMap : "",
         position:
-          arrPositions && arrPositions.length > 0 ? arrPositions[0].key : "",
+          arrPositions && arrPositions.length > 0 ? arrPositions[0].keyMap : "",
         avatar: "",
         action: CRUD_ACTIONS.CREATE,
         previewImgUrl: "",
@@ -215,7 +215,7 @@ class UserRedux extends Component {
     let positions = this.state.positionArr;
     let roles = this.state.roleArr;
     let language = this.props.language;
-    let isLoadingGender = this.props.isLoadingGender;
+    let isLoading = this.props.isLoading;
     let {
       email,
       password,
@@ -224,8 +224,8 @@ class UserRedux extends Component {
       phoneNumber,
       address,
       gender,
-      position,
       role,
+      position,
       avatar,
     } = this.state;
 
@@ -238,9 +238,7 @@ class UserRedux extends Component {
               <div className="col-12 my-3 form-title">
                 <FormattedMessage id={"manage-user.add"} />
               </div>
-              <div className="col-12">
-                {isLoadingGender === true ? "Loading gender" : " "}
-              </div>
+
               <div className="col-4">
                 <label htmlFor="">
                   {" "}
@@ -333,7 +331,7 @@ class UserRedux extends Component {
                     genders.length > 0 &&
                     genders.map((item, index) => {
                       return (
-                        <option key={index} value={item.key}>
+                        <option key={index} value={item.keyMap}>
                           {language === LANGUAGES.VI
                             ? item.valueVi
                             : item.valueEn}
@@ -352,11 +350,11 @@ class UserRedux extends Component {
                   value={position}
                   onChange={(event) => this.onChangeInput(event, "position")}
                 >
-                  {roles &&
-                    roles.length > 0 &&
-                    roles.map((item, index) => {
+                  {positions &&
+                    positions.length > 0 &&
+                    positions.map((item, index) => {
                       return (
-                        <option key={index} value={item.key}>
+                        <option key={index} value={item.keyMap}>
                           {language === LANGUAGES.VI
                             ? item.valueVi
                             : item.valueEn}
@@ -375,11 +373,11 @@ class UserRedux extends Component {
                   value={role}
                   onChange={(event) => this.onChangeInput(event, "role")}
                 >
-                  {positions &&
-                    positions.length > 0 &&
-                    positions.map((item, index) => {
+                  {roles &&
+                    roles.length > 0 &&
+                    roles.map((item, index) => {
                       return (
-                        <option key={index} value={item.key}>
+                        <option key={index} value={item.keyMap}>
                           {language === LANGUAGES.VI
                             ? item.valueVi
                             : item.valueEn}
@@ -431,6 +429,10 @@ class UserRedux extends Component {
                   )}
                 </button>
               </div>
+
+              <div className="col-12">
+                {isLoading === true ? "Loading" : " "}
+              </div>
               <div className="col-12 mb-5">
                 <TableManageUser
                   handleEditUserFromParent={this.handleEditUserFromParent}
@@ -458,7 +460,7 @@ const mapStateToProps = (state) => {
     genderRedux: state.admin.genders,
     roleRedux: state.admin.roles,
     positionRedux: state.admin.positions,
-    isLoadingGender: state.admin.isLoadingGender,
+    isLoading: state.admin.isLoading,
     //reset state
     listUsers: state.admin.users,
   };
