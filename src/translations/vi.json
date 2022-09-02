@@ -56,5 +56,10 @@
     "image": "Ảnh đại diện",
     "save": "Lưu lại",
     "edit": "Lưu thay đổi"
+  },
+  "homepage": {
+    "outstanding-doctors": "Bác sĩ nổi bật tuần qua",
+    "search": "Tìm kiếm",
+    "more": "Xem thêm"
   }
 }

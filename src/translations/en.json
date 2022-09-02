@@ -57,5 +57,10 @@
     "image": "Avatar Image",
     "save": "Save",
     "edit": "Edit user"
+  },
+  "homepage": {
+    "outstanding-doctors": "Last week's featured doctors",
+    "search": "Search",
+    "more": "More"
   }
 }

@@ -33,8 +33,13 @@ class OutStandingDoctor extends Component {
       <div className="section-share section-outstanding-doctor">
         <div className="section-container container">
           <div className="section-header">
-            <span className="section-title">Bác sĩ nổi bật tuần qua</span>
-            <button className="section-more">Tìm Kiếm</button>
+            <span className="section-title">
+              <FormattedMessage id="homepage.outstanding-doctors" />
+            </span>
+            <button className="section-more">
+              {" "}
+              <FormattedMessage id="homepage.search" />
+            </button>
           </div>
           <div className="section-body">
             <Slider {...this.props.settings}>
@@ -47,7 +52,7 @@ class OutStandingDoctor extends Component {
                       "binary"
                     );
                   }
-                  let nameVi = `${item.positionData.valueVi}, ${item.firstName} ${item.lastName}`;
+                  let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                   let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                   return (
                     <div className="section-item doctor" key={index}>
