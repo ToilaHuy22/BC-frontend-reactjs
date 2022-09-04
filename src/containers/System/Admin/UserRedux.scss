@@ -36,6 +36,9 @@
           }
           .edit {
             font-size: 16px;
+            &:hover {
+              background-color: #fdbb2d !important;
+            }
           }
         }
       }
@@ -75,6 +78,13 @@
     background-color: #fdbb2d !important;
   }
 }
+.edit {
+  font-size: 16px;
+  &:hover {
+    background-color: #fdbb2d !important;
+  }
+}
+
 .preview-image {
   width: 100%;
   height: 150px;

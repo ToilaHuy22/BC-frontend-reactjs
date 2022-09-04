@@ -4,9 +4,28 @@
     gap: 15px;
     .content-left {
       width: 40%;
+      .form-select {
+        border-radius: 0.25rem;
+        border: 1px solid #bbb;
+        &:focus {
+          background-color: #bbb;
+          border-color: #22c1c3 !important;
+          outline: 0;
+          box-shadow: 0 0 0 0 #22c1c3;
+        }
+      }
     }
     .content-right {
       width: 60%;
+    }
+  }
+  .manage-doctor-editor {
+    border: 2px solid #22c1c3;
+    border-radius: 0.25rem;
+    i {
+      &:hover {
+        color: #22c1c3;
+      }
     }
   }
 }
