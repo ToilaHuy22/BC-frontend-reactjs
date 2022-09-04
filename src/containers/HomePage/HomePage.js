@@ -29,7 +29,7 @@ class HomePage extends Component {
     };
     return (
       <div>
-        <HomeHeader />
+        <HomeHeader isShowBanner={true} />
         {/* top children */}
         <Specialty settings={settings} />
         <OutStandingDoctor settings={settings} />
