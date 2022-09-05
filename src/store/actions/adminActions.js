@@ -113,7 +113,6 @@ export const createNewUser = (data) => {
     }
   };
 };
-
 export const saveUserSuccess = () => ({
   type: actionTypes.CREATE_USER_SUCCESS,
 });
@@ -143,7 +142,6 @@ export const fetchAllUsersSuccess = (data) => ({
   type: actionTypes.FETCH_ALL_USER_SUCCESS,
   users: data,
 });
-
 export const fetchAllUsersFailed = () => ({
   type: actionTypes.FETCH_ALL_USER_FAILED,
 });
@@ -168,7 +166,6 @@ export const deleteAUser = (userId) => {
     }
   };
 };
-
 export const deleteUserSuccess = () => ({
   type: actionTypes.DELETE_USER_SUCCESS,
 });
@@ -196,7 +193,6 @@ export const editAUser = (userId) => {
     }
   };
 };
-
 export const editUserSuccess = () => ({
   type: actionTypes.EDIT_USER_SUCCESS,
 });
@@ -277,6 +273,30 @@ export const saveDetailDoctors = (data) => {
       });
 
       toast.error("Save information failed!");
+    }
+  };
+};
+
+//all schedule
+export const fetchAllScheduleTime = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllCodeService("TIME");
+      if (res && res.errCode === 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+          dataTime: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+        });
+      }
+    } catch (e) {
+      console.log(e);
+      dispatch({
+        type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+      });
     }
   };
 };

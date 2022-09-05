@@ -65,5 +65,11 @@
     "outstanding-doctors": "Last week's featured doctors",
     "search": "Search",
     "more": "More"
+  },
+  "manage-schedule": {
+    "title": "Manage medical appointments",
+    "choose-doctor": "Choose Doctor",
+    "choose-date": "Choose date",
+    "save": "Save"
   }
 }

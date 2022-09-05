@@ -1,6 +1,14 @@
 .btn-primary {
   background-color: #22c1c3;
   border: #22c1c3;
+  font-size: 16px;
+  &:hover {
+    background-color: #fdbb2d !important;
+  }
+  &:focus {
+    background-color: #fdbb2d;
+    border-color: #fdbb2d;
+  }
 }
 .form-control {
   border: 2px solid #bbb;
@@ -11,17 +19,22 @@
     box-shadow: 0 0 0 0 #22c1c3;
   }
 }
+.form-group {
+  label {
+    font-size: 16px;
+  }
+}
+.form-title {
+  font-size: 16px;
+}
+.form-control {
+  font-size: 16px;
+}
 
 .user-redux-container {
   .user-redux-body {
     .container {
       .row {
-        .form-title {
-          font-size: 16px;
-        }
-        .form-control {
-          font-size: 16px;
-        }
         div {
           label {
             font-size: 16px;
@@ -71,19 +84,19 @@
     //   }
   }
 }
-.save {
-  font-size: 16px;
+// .save {
+//   font-size: 16px;
 
-  &:hover {
-    background-color: #fdbb2d !important;
-  }
-}
-.edit {
-  font-size: 16px;
-  &:hover {
-    background-color: #fdbb2d !important;
-  }
-}
+//   &:hover {
+//     background-color: #fdbb2d !important;
+//   }
+// }
+// .edit {
+//   font-size: 16px;
+//   &:hover {
+//     background-color: #fdbb2d !important;
+//   }
+// }
 
 .preview-image {
   width: 100%;

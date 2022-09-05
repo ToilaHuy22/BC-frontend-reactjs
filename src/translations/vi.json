@@ -64,5 +64,11 @@
     "outstanding-doctors": "Bác sĩ nổi bật tuần qua",
     "search": "Tìm kiếm",
     "more": "Xem thêm"
+  },
+  "manage-schedule": {
+    "title": "Quản lí lịch khám bệnh",
+    "choose-doctor": "Chọn Bác sĩ",
+    "choose-date": "Chọn ngày đặt lịch",
+    "save": "Lưu thông tin"
   }
 }

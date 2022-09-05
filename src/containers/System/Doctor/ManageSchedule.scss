@@ -1,0 +1,21 @@
+.manage-schedule-container {
+  .container {
+    .ms-title {
+    }
+    .row {
+      .form-group {
+      }
+      .pick-hour-container {
+        height: 150px;
+        .btn-primary {
+          background-color: #ccc;
+          color: black;
+          &:focus {
+            background-color: #fdbb2d;
+            border-color: #fdbb2d;
+          }
+        }
+      }
+    }
+  }
+}
