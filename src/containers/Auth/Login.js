@@ -64,6 +64,13 @@ class Login extends Component {
     });
   };
 
+  handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.keyCode === 13) {
+      this.hanldeLogin();
+      console.log("dovalidate");
+    }
+  };
+
   render() {
     return (
       <div className="login-background">
@@ -78,6 +85,7 @@ class Login extends Component {
                 placeholder="Enter your username"
                 value={this.state.username}
                 onChange={(event) => this.handleOnChangeUserName(event)}
+                onKeyDown={(event) => this.handleKeyDown(event)}
               />
             </div>
             <div className="col-12 form-group login-input">
@@ -89,6 +97,7 @@ class Login extends Component {
                   placeholder="Enter your password"
                   value={this.state.password}
                   onChange={(event) => this.handleOnChangePassword(event)}
+                  onKeyDown={(event) => this.handleKeyDown(event)}
                 />
                 <span
                   onClick={() => {
