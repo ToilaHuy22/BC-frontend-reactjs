@@ -10,9 +10,18 @@
         .btn-primary {
           background-color: #ccc;
           color: black;
-          &:focus {
+          border: 2px solid #ccc;
+          &:hover {
+            border: 2px solid #22c1c3;
+            background-color: #ccc !important;
+          }
+        }
+        .btn-schedule {
+          &.active {
             background-color: #fdbb2d;
-            border-color: #fdbb2d;
+            &:hover {
+              background-color: #fdbb2d !important;
+            }
           }
         }
       }
