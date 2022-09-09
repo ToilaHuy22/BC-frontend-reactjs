@@ -69,8 +69,7 @@ class DetailDoctor extends Component {
     return (
       <div className="doctor-schedule-container">
         <div className="all-schedule">
-          <select>
-            onChange={(event) => this.handleOnChangeSelect(event)}
+          <select onChange={(event) => this.handleOnChangeSelect(event)}>
             {allDays &&
               allDays.length > 0 &&
               allDays.map((item, index) => {
