@@ -27,17 +27,15 @@
   }
   .schedule-doctor {
     border-bottom: 1px solid #ccc;
-    height: 200px;
+  
     .schedule-doctor-content {
       display: flex;
       gap: 30px;
       .content-left {
-        width: 55%;
-        border: 1px solid red;
+        width: 60%;
       }
       .content-right {
-        width: 45%;
-        border: 1px solid green;
+        width:40%;     
       }
     }
   }

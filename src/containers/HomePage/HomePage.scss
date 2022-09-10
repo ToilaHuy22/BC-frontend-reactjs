@@ -115,9 +115,12 @@ li {
       @include transition-hover-2();
       //doctor
       &.doctor {
+        padding: 10px;
         height: 220px;
-        width: 278px !important;
+        width: 96% !important;
+        border-top:1px solid $primary-color-yellow ;
         border-right: 1px solid $primary-color-yellow;
+        border-left: 1px solid $primary-color-yellow;
         border-bottom: 1px solid $primary-color-yellow;
       }
       //doctor end

@@ -24,7 +24,6 @@
     "product": "Medical Products",
     "corporate-health": "Corporate health"
   },
-
   "menu": {
     "system": {
       "welcome": "Welcome"
@@ -71,5 +70,14 @@
     "choose-doctor": "Choose Doctor",
     "choose-date": "Choose date",
     "save": "Save"
+  },
+  "patient": {
+    "detail-doctor": {
+      "no-schedule": "No appointments for this day.",
+      "please-reselect": "Please choose another date!",
+      "schedule": "Schedule",
+      "choose": "Choose",
+      "book-free": "and book (Booking fee 0$)"
+    }
   }
 }
