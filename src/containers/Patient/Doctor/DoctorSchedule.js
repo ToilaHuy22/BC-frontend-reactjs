@@ -38,10 +38,7 @@ class DetailDoctor extends Component {
 
     if (this.props.doctorIdFromParent !== prevProps.doctorIdFromParent) {
       let allDays = this.getArrDays(this.props.language);
-      let res = await getScheduleDoctorByDate(
-        this.props.doctorIdFromParent,
-        allDays[0].value
-      );
+      let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value);
       this.setState({
         allAvailableTime: res.data ? res.data : [],
       });
@@ -78,9 +75,7 @@ class DetailDoctor extends Component {
           let today = `Hôm nay - ${ddMM}`;
           object.label = today;
         } else {
-          let labelVi = moment(new Date())
-            .add(i, "days")
-            .format("dddd - DD/MM");
+          let labelVi = moment(new Date()).add(i, "days").format("dddd - DD/MM");
           object.label = this.capitalizeFirstLetter(labelVi);
         }
       } else {
@@ -89,10 +84,7 @@ class DetailDoctor extends Component {
           let today = `Today - ${ddMM}`;
           object.label = today;
         } else {
-          object.label = moment(new Date())
-            .add(i, "days")
-            .locale("en")
-            .format("ddd - DD/MM");
+          object.label = moment(new Date()).add(i, "days").locale("en").format("ddd - DD/MM");
         }
       }
 
@@ -163,8 +155,7 @@ class DetailDoctor extends Component {
               </>
             ) : (
               <div className="no-schedule">
-                <FormattedMessage id="patient.detail-doctor.no-schedule" />{" "}
-                <br />
+                <FormattedMessage id="patient.detail-doctor.no-schedule" /> <br />
                 <FormattedMessage id="patient.detail-doctor.please-reselect" />
               </div>
             )}
