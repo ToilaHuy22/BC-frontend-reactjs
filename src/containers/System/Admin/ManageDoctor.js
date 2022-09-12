@@ -168,14 +168,53 @@ class ManageDoctor extends Component {
   handleChangeSelect = async (selectedOption) => {
     this.setState({ selectedOption });
 
+    let { listPayment, listPrice, listProvince } = this.state;
+
     let res = await getDetailInforDoctor(selectedOption.value);
 
     if (res && res.errCode === 0 && res.data && res.data.Markdown) {
       let markdown = res.data.Markdown;
+
+      let addressClinic = "",
+        nameClinic = "",
+        note = "",
+        paymentId = "",
+        priceId = "",
+        provinceId = "",
+        selectedProvince = "",
+        selectedPayment = "",
+        selectedPrice = "";
+
+      if (res.data.Doctor_Infor) {
+        addressClinic = res.data.Doctor_Infor.addressClinic;
+        nameClinic = res.data.Doctor_Infor.nameClinic;
+        note = res.data.Doctor_Infor.note;
+        paymentId = res.data.Doctor_Infor.paymentId;
+        provinceId = res.data.Doctor_Infor.provinceId;
+        priceId = res.data.Doctor_Infor.priceId;
+
+        //loaddata for 3 select Doctor_Infor
+        selectedPayment = listPayment.find((item) => {
+          return item && item.value === paymentId;
+        });
+        selectedProvince = listProvince.find((item) => {
+          return item && item.value === provinceId;
+        });
+        selectedPrice = listPrice.find((item) => {
+          return item && item.value === priceId;
+        });
+      }
+
       this.setState({
         contentHTML: markdown.contentHTML,
         contentMarkdown: markdown.contentMarkdown,
         description: markdown.description,
+        addressClinic: addressClinic,
+        nameClinic: nameClinic,
+        note: note,
+        selectedPayment: selectedPayment,
+        selectedPrice: selectedPrice,
+        selectedProvince: selectedProvince,
         hasOldData: true,
       });
     } else {
@@ -183,6 +222,9 @@ class ManageDoctor extends Component {
         contentHTML: "",
         contentMarkdown: "",
         description: "",
+        addressClinic: "",
+        nameClinic: "",
+        note: "",
         hasOldData: false,
       });
     }

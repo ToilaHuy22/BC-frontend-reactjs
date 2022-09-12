@@ -15,11 +15,7 @@ class DetailDoctor extends Component {
     };
   }
   async componentDidMount() {
-    if (
-      this.props.match &&
-      this.props.match.params &&
-      this.props.match.params.id
-    ) {
+    if (this.props.match && this.props.match.params && this.props.match.params.id) {
       let id = this.props.match.params.id;
       this.setState({
         currentDoctorId: id,
@@ -57,21 +53,15 @@ class DetailDoctor extends Component {
               <div
                 className="content-left"
                 style={{
-                  backgroundImage: `url(${
-                    detailDoctor && detailDoctor.image ? detailDoctor.image : ""
-                  })`,
+                  backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ""})`,
                 }}
               ></div>
               <div className="content-right">
-                <div className="up">
-                  {language === LANGUAGES.VI ? nameVi : nameEn}
-                </div>
+                <div className="up">{language === LANGUAGES.VI ? nameVi : nameEn}</div>
                 <div className="down">
-                  {detailDoctor &&
-                    detailDoctor.Markdown &&
-                    detailDoctor.Markdown.description && (
-                      <span>{detailDoctor.Markdown.description}</span>
-                    )}
+                  {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.description && (
+                    <span>{detailDoctor.Markdown.description}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -79,24 +69,20 @@ class DetailDoctor extends Component {
           <div className="schedule-doctor pb-5">
             <div className="schedule-doctor-content container">
               <div className="content-left">
-                <DoctorSchedule
-                  doctorIdFromParent={this.state.currentDoctorId}
-                />
+                <DoctorSchedule doctorIdFromParent={this.state.currentDoctorId} />
               </div>
               <div className="content-right"></div>
             </div>
           </div>
           <div className="detail-infor-doctor">
             <div className="detail-infor-doctor-content container">
-              {detailDoctor &&
-                detailDoctor.Markdown &&
-                detailDoctor.Markdown.contentHTML && (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: detailDoctor.Markdown.contentHTML,
-                    }}
-                  ></div>
-                )}
+              {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: detailDoctor.Markdown.contentHTML,
+                  }}
+                ></div>
+              )}
             </div>
           </div>
           <div className="comment-doctor"></div>
