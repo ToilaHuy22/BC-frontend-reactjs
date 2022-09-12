@@ -78,6 +78,13 @@
       "schedule": "Lịch Khám",
       "choose": "Chọn",
       "book-free": "và đặt (Phí đặt lịch 0đ)"
+    },
+    "extra-infor": {
+      "text-address": "Địa chỉ khám",
+      "price": "Giá khám: ",
+      "payment": "Phòng khám có thanh toán bằng hình thức: ",
+      "hide": "Thu gọn",
+      "show": "Xem chi tiết"
     }
   },
   "admin": {

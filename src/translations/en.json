@@ -78,6 +78,13 @@
       "schedule": "Schedule",
       "choose": "Choose",
       "book-free": "and book (Booking fee 0$)"
+    },
+    "extra-infor": {
+      "text-address": "Medical address",
+      "price": "Price: ",
+      "payment": "The clinic can pay in the form of: ",
+      "hide": "Hide detail",
+      "show": "Show detail"
     }
   },
   "admin": {

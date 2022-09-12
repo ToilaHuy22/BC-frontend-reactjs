@@ -1,7 +1,7 @@
-import axios from "../axios";
+import axios from '../axios';
 
 const handleLoginApi = (userEmail, userPassword) => {
-  return axios.post("/api/login", { email: userEmail, password: userPassword });
+  return axios.post('/api/login', { email: userEmail, password: userPassword });
 };
 
 const getAllUsers = (inputId) => {
@@ -9,17 +9,17 @@ const getAllUsers = (inputId) => {
 };
 
 const createNewUserService = (data) => {
-  console.log("check data from service", data);
-  return axios.post("/api/create-new-user", data);
+  console.log('check data from service', data);
+  return axios.post('/api/create-new-user', data);
 };
 
 const deleteUserService = (userId) => {
   //
-  return axios.delete("/api/delete-user", { data: { id: userId } });
+  return axios.delete('/api/delete-user', { data: { id: userId } });
 };
 
 const editUserService = (inputData) => {
-  return axios.put("/api/edit-user", inputData);
+  return axios.put('/api/edit-user', inputData);
 };
 
 const getAllCodeService = (inputType) => {
@@ -35,7 +35,7 @@ const getAllDoctors = () => {
 };
 
 const saveDetailDoctorService = (data) => {
-  return axios.post("/api/save-infor-doctors", data);
+  return axios.post('/api/save-infor-doctors', data);
 };
 
 const getDetailInforDoctor = (inputId) => {
@@ -43,11 +43,15 @@ const getDetailInforDoctor = (inputId) => {
 };
 
 const saveBulkScheduleDoctor = (data) => {
-  return axios.post("/api/bulk-create-schedule", data);
+  return axios.post('/api/bulk-create-schedule', data);
 };
 
 const getScheduleDoctorByDate = (doctorId, date) => {
   return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`);
+};
+
+const getExtraInforDoctorById = (doctorId) => {
+  return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`);
 };
 
 export {
@@ -63,4 +67,5 @@ export {
   getDetailInforDoctor,
   saveBulkScheduleDoctor,
   getScheduleDoctorByDate,
+  getExtraInforDoctorById,
 };
