@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "./DoctorSchedule.scss";
-import "../../System/Admin/UserRedux";
-import moment from "moment";
-import localization from "moment/locale/vi";
-import { LANGUAGES } from "../../../utils";
-import { getScheduleDoctorByDate } from "../../../services/userService";
-import { FormattedMessage } from "react-intl";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import './DoctorSchedule.scss';
+import '../../System/Admin/UserRedux';
+import moment from 'moment';
+import localization from 'moment/locale/vi';
+import { LANGUAGES } from '../../../utils';
+import { getScheduleDoctorByDate } from '../../../services/userService';
+import { FormattedMessage } from 'react-intl';
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class DetailDoctor extends Component {
           allAvailableTime: res.data ? res.data : [],
         });
       }
-      console.log("schedule from react", res);
+      console.log('schedule from react', res);
     }
   };
 
@@ -71,24 +71,24 @@ class DetailDoctor extends Component {
 
       if (language === LANGUAGES.VI) {
         if (i === 0) {
-          let ddMM = moment(new Date()).format("DD/MM");
+          let ddMM = moment(new Date()).format('DD/MM');
           let today = `Hôm nay - ${ddMM}`;
           object.label = today;
         } else {
-          let labelVi = moment(new Date()).add(i, "days").format("dddd - DD/MM");
+          let labelVi = moment(new Date()).add(i, 'days').format('dddd - DD/MM');
           object.label = this.capitalizeFirstLetter(labelVi);
         }
       } else {
         if (i === 0) {
-          let ddMM = moment(new Date()).format("DD/MM");
+          let ddMM = moment(new Date()).format('DD/MM');
           let today = `Today - ${ddMM}`;
           object.label = today;
         } else {
-          object.label = moment(new Date()).add(i, "days").locale("en").format("ddd - DD/MM");
+          object.label = moment(new Date()).add(i, 'days').locale('en').format('ddd - DD/MM');
         }
       }
 
-      object.value = moment(new Date()).add(i, "days").startOf("day").valueOf();
+      object.value = moment(new Date()).add(i, 'days').startOf('day').valueOf();
       allDays.push(object);
     }
 
@@ -100,12 +100,9 @@ class DetailDoctor extends Component {
     let { language } = this.props;
 
     return (
-      <div className="doctor-schedule-container mt-5">
+      <div className="doctor-schedule-container ">
         <div className="all-schedule">
-          <select
-            className="schedule-select my-3"
-            onChange={(event) => this.handleOnChangeSelect(event)}
-          >
+          <select className="schedule-select my-3" onChange={(event) => this.handleOnChangeSelect(event)}>
             {allDays &&
               allDays.length > 0 &&
               allDays.map((item, index) => {
@@ -128,17 +125,14 @@ class DetailDoctor extends Component {
             {allAvailableTime && allAvailableTime.length > 0 ? (
               <>
                 {allAvailableTime.map((item, index) => {
-                  let timeDisplay =
-                    language === LANGUAGES.VI
-                      ? item.timeTypeData.valueVi
-                      : item.timeTypeData.valueEn;
+                  let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn;
                   return (
                     <button
                       key={index}
                       className={
                         language === LANGUAGES.VI
-                          ? "btn btn-primary btn-schedule btn-vi"
-                          : "btn btn-primary btn-schedule btn-en"
+                          ? 'btn btn-primary btn-schedule btn-vi'
+                          : 'btn btn-primary btn-schedule btn-en'
                       }
                     >
                       {timeDisplay}
@@ -147,8 +141,7 @@ class DetailDoctor extends Component {
                 })}
                 <div className="book-free mt-4 pb-3">
                   <span>
-                    <FormattedMessage id="patient.detail-doctor.choose" />{" "}
-                    <i class="far fa-hand-pointer"></i>{" "}
+                    <FormattedMessage id="patient.detail-doctor.choose" /> <i class="far fa-hand-pointer"></i>{' '}
                     <FormattedMessage id="patient.detail-doctor.book-free" />
                   </span>
                 </div>
