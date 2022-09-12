@@ -1,0 +1,42 @@
+$primary-color-blue: #22c1c3;
+$primary-color-yellow: #fdbb2d;
+.modal-user-container {
+  .modal-content {
+    border-radius: 5px;
+    border: 1px solid $primary-color-blue;
+    overflow: hidden;
+
+    .modal-header {
+      background-color: $primary-color-blue !important;
+      height: 30px !important;
+      h5 {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        line-height: 5px !important;
+        margin-left: 24px;
+        color: white;
+      }
+      button {
+        display: none;
+      }
+    }
+
+    .modal-footer {
+      button {
+        border-radius: 5px;
+        &:first-child {
+          background-color: $primary-color-blue;
+          &:hover {
+            color: white;
+            background-color: $primary-color-yellow;
+          }
+        }
+        &:last-child {
+          &:hover {
+            color: $primary-color-yellow;
+          }
+        }
+      }
+    }
+  }
+}
