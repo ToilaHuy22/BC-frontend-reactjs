@@ -26,14 +26,16 @@ class BookingModal extends Component {
     let { isOpenModal, dataScheduleTimeModal } = this.props;
     let doctorId = dataScheduleTimeModal && !_.isEmpty(dataScheduleTimeModal) ? dataScheduleTimeModal.doctorId : '';
 
-    console.log('data props form modal', dataScheduleTimeModal);
-
     return (
       <>
         <Modal isOpen={isOpenModal} className={'modal-user-container'} centered size="lg" toggle={() => this.toggle()}>
           <div className="modal-content">
             <ModalHeader className={'modal-header'} toggle={() => this.toggle()}>
-              <ProfileDoctor doctorId={doctorId} isShowDescriptionDoctor={true} />
+              <ProfileDoctor
+                doctorId={doctorId}
+                isShowDescriptionDoctor={false}
+                dataScheduleTimeModal={dataScheduleTimeModal}
+              />
             </ModalHeader>
             <ModalBody>
               <div className="doctor-infor"></div>

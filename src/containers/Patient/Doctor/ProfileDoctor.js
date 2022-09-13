@@ -5,6 +5,9 @@ import { getProfileDoctorById } from '../../../services/userService';
 import { LANGUAGES } from '../../../utils';
 import NumberFormat from 'react-number-format';
 import { FormattedMessage } from 'react-intl';
+import _ from 'lodash';
+import moment from 'moment/moment';
+import localization from 'moment/locale/vi';
 
 class ProfileDoctor extends Component {
   constructor(props) {
@@ -40,10 +43,36 @@ class ProfileDoctor extends Component {
     return result;
   };
 
+  renderTimeBooing = (dataTime) => {
+    let { language } = this.props;
+
+    console.log('renderTimeBooing', dataTime);
+    if (dataTime && !_.isEmpty(dataTime)) {
+      let time = language === LANGUAGES.VI ? dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn;
+
+      let date =
+        language === LANGUAGES.VI
+          ? moment.unix(+dataTime.date / 1000).format('dddd - DD/MM/YYYY')
+          : moment
+              .unix(+dataTime.date / 1000)
+              .locale('en')
+              .format('ddd - MM/DD/YYYY');
+
+      return (
+        <>
+          <div className="booking-date">{date}</div>
+          <div className="booking-time">{time}</div>
+          <div>Miễn phí đặt lịch</div>
+        </>
+      );
+    }
+    return <></>;
+  };
+
   render() {
-    console.log('state', this.state);
     let { dataProfile } = this.state;
-    let { language, isShowDescriptionDoctor } = this.props;
+    let { language, isShowDescriptionDoctor, dataScheduleTimeModal } = this.props;
+
     let nameVi = '',
       nameEn = '';
     if (dataProfile && dataProfile.positionData) {
@@ -63,13 +92,16 @@ class ProfileDoctor extends Component {
 
           <div className="content-right pl-4">
             <div className="up ">{language === LANGUAGES.VI ? nameVi : nameEn}</div>
+
             <div className="down ">
-              {isShowDescriptionDoctor === true && (
+              {isShowDescriptionDoctor === true ? (
                 <>
                   {dataProfile && dataProfile.Markdown && dataProfile.Markdown.description && (
                     <span>{dataProfile.Markdown.description}</span>
                   )}
                 </>
+              ) : (
+                <>{this.renderTimeBooing(dataScheduleTimeModal)}</>
               )}
             </div>
           </div>
