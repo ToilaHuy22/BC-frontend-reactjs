@@ -8,11 +8,13 @@ $primary-color-yellow: #fdbb2d;
 
     .modal-header {
       background-color: $primary-color-blue !important;
-      height: 30px !important;
+      height: 150px !important;
+      padding: 0.8rem 0.8rem;
+
       h5 {
-        font-size: 18px !important;
+        font-size: 13px !important;
         font-weight: 600 !important;
-        line-height: 5px !important;
+        line-height: 24px !important;
         margin-left: 24px;
         color: white;
       }

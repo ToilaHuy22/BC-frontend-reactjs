@@ -5,6 +5,8 @@ import './BookingModal.scss';
 import '../../../System/Admin/UserRedux.scss';
 import { LANGUAGES } from '../../../../utils';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import ProfileDoctor from '../ProfileDoctor';
+import _ from 'lodash';
 
 class BookingModal extends Component {
   constructor(props) {
@@ -22,17 +24,20 @@ class BookingModal extends Component {
 
   render() {
     let { isOpenModal, dataScheduleTimeModal } = this.props;
+    let doctorId = dataScheduleTimeModal && !_.isEmpty(dataScheduleTimeModal) ? dataScheduleTimeModal.doctorId : '';
+
+    console.log('data props form modal', dataScheduleTimeModal);
 
     return (
       <>
-        <Modal isOpen={isOpenModal} className={'modal-user-container'} size="lg" toggle={() => this.toggle()}>
+        <Modal isOpen={isOpenModal} className={'modal-user-container'} centered size="lg" toggle={() => this.toggle()}>
           <div className="modal-content">
             <ModalHeader className={'modal-header'} toggle={() => this.toggle()}>
-              Book an appointment
+              <ProfileDoctor doctorId={doctorId} isShowDescriptionDoctor={true} />
             </ModalHeader>
             <ModalBody>
               <div className="doctor-infor"></div>
-              <div className="price">Gia kham 500000 VND</div>
+
               <div className="row">
                 <div className="col-6 form-group">
                   <label htmlFor="">Ho Ten</label>

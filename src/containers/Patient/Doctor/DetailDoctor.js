@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import HomeHeader from "../../HomePage/HomeHeader";
-import "./DetailDoctor.scss";
-import { getDetailInforDoctor } from "../../../services/userService";
-import { LANGUAGES } from "../../../utils";
-import DoctorSchedule from "./DoctorSchedule";
-import DoctorExtraInfor from "./DoctorExtraInfor";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import HomeHeader from '../../HomePage/HomeHeader';
+import './DetailDoctor.scss';
+import { getDetailInforDoctor } from '../../../services/userService';
+import { LANGUAGES } from '../../../utils';
+import DoctorSchedule from './DoctorSchedule';
+import DoctorExtraInfor from './DoctorExtraInfor';
 
 class DetailDoctor extends Component {
   constructor(props) {
@@ -36,11 +36,10 @@ class DetailDoctor extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {}
 
   render() {
-    console.log(this.props.match.params.id);
     let { language } = this.props;
     let { detailDoctor } = this.state;
-    let nameVi = "",
-      nameEn = "";
+    let nameVi = '',
+      nameEn = '';
     if (detailDoctor && detailDoctor.positionData) {
       nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.lastName} ${detailDoctor.firstName}`;
       nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.firstName} ${detailDoctor.lastName}`;
@@ -54,7 +53,7 @@ class DetailDoctor extends Component {
               <div
                 className="content-left"
                 style={{
-                  backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ""})`,
+                  backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ''})`,
                 }}
               ></div>
               <div className="content-right">
