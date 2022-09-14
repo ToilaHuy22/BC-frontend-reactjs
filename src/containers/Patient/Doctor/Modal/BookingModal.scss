@@ -8,7 +8,7 @@ $primary-color-yellow: #fdbb2d;
 
     .modal-header {
       background-color: $primary-color-blue !important;
-      height: 170px !important;
+      height: 180px !important;
       padding: 0.8rem 0.8rem;
 
       h5 {
@@ -21,21 +21,36 @@ $primary-color-yellow: #fdbb2d;
       button {
         display: none;
       }
+      .doctor-infor {
+      }
     }
-
+    .row {
+      .form-group {
+        label {
+          font-size: 14px;
+        }
+        .form-control {
+          font-size: 14px;
+          padding: 0px 5px;
+        }
+      }
+    }
     .modal-footer {
       button {
         border-radius: 5px;
         &:first-child {
           background-color: $primary-color-blue;
           &:hover {
-            color: white;
+            color: #fff;
             background-color: $primary-color-yellow;
           }
         }
         &:last-child {
+          color: #fff;
+          background-color: #bbb;
           &:hover {
-            color: $primary-color-yellow;
+            background-color: rgba(105, 105, 105, 0.733) !important;
+            color: #fff;
           }
         }
       }

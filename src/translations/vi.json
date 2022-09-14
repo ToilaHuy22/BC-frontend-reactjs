@@ -84,7 +84,19 @@
       "price": "Giá khám: ",
       "payment": "Phòng khám có thanh toán bằng hình thức: ",
       "hide": "Thu gọn",
-      "show": "Xem chi tiết"
+      "show": "Xem chi tiết",
+      "booking-free": "Miễn phí đặt lịch"
+    },
+    "booking-modal": {
+      "email": "Địa chỉ Email",
+      "full-name": "Họ và Tên",
+      "address": "Địa chỉ liên hệ",
+      "phone-number": "Số điện thoại",
+      "gender": "Giới tính",
+      "date": "Ngày sinh",
+      "reason": "Lí do khám bệnh",
+      "book": "Đặt lịch",
+      "cancel": "Hủy"
     }
   },
   "admin": {

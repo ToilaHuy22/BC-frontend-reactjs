@@ -84,7 +84,19 @@
       "price": "Price: ",
       "payment": "The clinic can pay in the form of: ",
       "hide": "Hide detail",
-      "show": "Show detail"
+      "show": "Show detail",
+      "booking-free": "Booking free"
+    },
+    "booking-modal": {
+      "email": "Email",
+      "full-name": "Full Name",
+      "address": "Address",
+      "phone-number": "Phonenumber",
+      "gender": "Gender",
+      "date": "Birthday",
+      "reason": "Reason",
+      "book": "Book",
+      "cancel": "Cancel"
     }
   },
   "admin": {

@@ -143,7 +143,8 @@ class DetailDoctor extends Component {
               {allAvailableTime && allAvailableTime.length > 0 ? (
                 <>
                   {allAvailableTime.map((item, index) => {
-                    let timeDisplay = language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn;
+                    let timeDisplay =
+                      language === LANGUAGES.VI ? item.timeTypeData.valueVi : item.timeTypeData.valueEn;
                     return (
                       <button
                         key={index}
@@ -160,7 +161,8 @@ class DetailDoctor extends Component {
                   })}
                   <div className="book-free mt-4 pb-3">
                     <span>
-                      <FormattedMessage id="patient.detail-doctor.choose" /> <i class="far fa-hand-pointer"></i>{' '}
+                      <FormattedMessage id="patient.detail-doctor.choose" />{' '}
+                      <i class="far fa-hand-pointer"></i>{' '}
                       <FormattedMessage id="patient.detail-doctor.book-free" />
                     </span>
                   </div>
