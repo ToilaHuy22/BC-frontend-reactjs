@@ -43,7 +43,7 @@ class ProfileDoctor extends Component {
     return result;
   };
 
-  renderTimeBooing = (dataTime) => {
+  renderTimeBooking = (dataTime) => {
     let { language } = this.props;
 
     if (dataTime && !_.isEmpty(dataTime)) {
@@ -103,7 +103,7 @@ class ProfileDoctor extends Component {
                   )}
                 </>
               ) : (
-                <>{this.renderTimeBooing(dataScheduleTimeModal)}</>
+                <>{this.renderTimeBooking(dataScheduleTimeModal)}</>
               )}
             </div>
           </div>
