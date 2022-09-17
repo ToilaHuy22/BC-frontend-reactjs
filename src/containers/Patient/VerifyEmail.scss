@@ -1,0 +1,12 @@
+.verify {
+  font-size: 20px;
+  color: #000;
+  &-content {
+    align-content: center;
+  }
+  &-success {
+  }
+  &-fail {
+    color: #fd7e14 !important;
+  }
+}
