@@ -30,18 +30,18 @@ class ManageSpecialty extends Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {}
 
-  handleEditorChange = ({ html, text }) => {
-    this.setState({
-      descriptionHTML: html,
-      descriptionMarkdown: text,
-    });
-  };
-
   handleOnChangeInput = (event, id) => {
     let stateCopy = { ...this.state };
     stateCopy[id] = event.target.value;
     this.setState({
       ...stateCopy,
+    });
+  };
+
+  handleEditorChange = ({ html, text }) => {
+    this.setState({
+      descriptionHTML: html,
+      descriptionMarkdown: text,
     });
   };
 
@@ -76,7 +76,7 @@ class ManageSpecialty extends Component {
   };
 
   render() {
-    let { name, imageBase64, descriptionHTML, descriptionMarkdown, previewImgUrl } = this.state;
+    let { name, descriptionMarkdown, previewImgUrl } = this.state;
 
     return (
       <div className="manage-specialty-container container">
