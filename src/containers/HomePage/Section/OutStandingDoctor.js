@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import Slider from "react-slick";
-import * as actions from "../../../store/actions";
-import { LANGUAGES } from "../../../utils";
-import { withRouter } from "react-router";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
+import Slider from 'react-slick';
+import * as actions from '../../../store/actions';
+import { LANGUAGES } from '../../../utils';
+import { withRouter } from 'react-router';
 
 class OutStandingDoctor extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class OutStandingDoctor extends Component {
               <FormattedMessage id="homepage.outstanding-doctors" />
             </span>
             <button className="section-more">
-              {" "}
+              {' '}
               <FormattedMessage id="homepage.search" />
             </button>
           </div>
@@ -52,11 +52,9 @@ class OutStandingDoctor extends Component {
               {arrDoctors &&
                 arrDoctors.length > 0 &&
                 arrDoctors.map((item, index) => {
-                  let imageBase64 = "";
+                  let imageBase64 = '';
                   if (item.image) {
-                    imageBase64 = new Buffer(item.image, "base64").toString(
-                      "binary"
-                    );
+                    imageBase64 = Buffer.from(item.image, 'base64').toString('binary');
                   }
                   let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                   let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
@@ -71,9 +69,7 @@ class OutStandingDoctor extends Component {
                         style={{ backgroundImage: `url(${imageBase64})` }}
                       />
                       <div className="detail">
-                        <span>
-                          {language === LANGUAGES.VI ? nameVi : nameEn}
-                        </span>
+                        <span>{language === LANGUAGES.VI ? nameVi : nameEn}</span>
                         <br />
                         <span>FrontEnd Dev</span>
                       </div>
@@ -102,6 +98,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor));
