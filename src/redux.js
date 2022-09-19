@@ -1,18 +1,18 @@
-import { logger } from "redux-logger";
-import thunkMiddleware from "redux-thunk";
-import { routerMiddleware } from "connected-react-router";
-import { createBrowserHistory } from "history";
+import { logger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import { routerMiddleware } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 
-import { createStore, applyMiddleware, compose } from "redux";
-import { createStateSyncMiddleware } from "redux-state-sync";
+import { createStore, applyMiddleware, compose } from 'redux';
+import { createStateSyncMiddleware } from 'redux-state-sync';
 //persist middleware
-import { persistStore } from "redux-persist";
+import { persistStore } from 'redux-persist';
 
-import createRootReducer from "./store/reducers/rootReducer";
-import actionTypes from "./store/actions/actionTypes";
+import createRootReducer from './store/reducers/rootReducer';
+import actionTypes from './store/actions/actionTypes';
 
-const environment = process.env.NODE_ENV || "development";
-let isDevelopment = environment === "development";
+const environment = process.env.NODE_ENV || 'development';
+let isDevelopment = environment === 'development';
 
 //hide redux logs
 isDevelopment = false;
@@ -38,10 +38,7 @@ const composeEnhancers =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose;
 
-const reduxStore = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middleware))
-);
+const reduxStore = createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)));
 
 export const dispatch = reduxStore.dispatch;
 
