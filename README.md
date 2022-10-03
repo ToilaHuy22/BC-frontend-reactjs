@@ -1,6 +1,6 @@
 Run the project on your machine:
 
-1. Use git-clone to clone the project to your computer.
+1.Use git-clone to clone the project to your computer.
 
 2.Open the project and run the command - npm i (To install the necessary additional files)
 
