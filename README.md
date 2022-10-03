@@ -1,16 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
- Doctor selection area
-## Available Scripts
+Chạy project trên máy bạn:
 
-In the project directory, you can run:
+1.Dùng git-clone để clone project về máy.
 
-### `npm start`
+2.Mở project và chạy câu lệnh - npm i (Để cài nhưng tệp bổ sung cần thiết)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+3.Tạo file .env Thay đổi đường dẫn tới tới database của bạn ở localhost
+![image](https://user-images.githubusercontent.com/90815697/193611018-1816602c-2ee9-4230-a969-961ff17b9693.png)
 
 
 ###HomePage
