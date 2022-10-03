@@ -1,11 +1,13 @@
 Run the project on your machine:
 
-1.Use git-clone to clone the project to your computer.
+1.Use git-clone to clone the project to your computer (Make sure you have nodejs installed on your device)
 
 2.Open the project and run the command - npm i (To install the necessary additional files)
 
 3.Create .env file Change the path to your database at localhost
 ![image](https://user-images.githubusercontent.com/90815697/193611018-1816602c-2ee9-4230-a969-961ff17b9693.png)
+
+4. npm start
 
 
 ###HomePage
